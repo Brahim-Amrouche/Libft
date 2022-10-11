@@ -6,14 +6,16 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 18:28:42 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/06 11:47:20 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/09 01:41:30 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strlen(char *c){
+#include "libft.h"
+
+size_t ft_strlen(const char *s){
     int i;
 
-    i=0;
-    while ( *(c + (i++)) );
+    i = -1;
+    while (s[++i]);
     return i;
 }

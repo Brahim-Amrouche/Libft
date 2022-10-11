@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 20:20:25 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/10 00:57:51 by bamrouch         ###   ########.fr       */
+/*   Created: 2022/10/09 01:16:42 by bamrouch          #+#    #+#             */
+/*   Updated: 2022/10/11 15:42:39 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
-void *ft_memset(void *b,int c, size_t len)
+
+int main(int argc,char **argv)
 {
-    size_t i;
-    i = 0;
-    while (i < len)
-        ((char *) b)[i++] = (unsigned char) c ;
-    return b;
+    (void )argc;
+    (void) argv;
+    char x[100] = "abcd";
+
+
+    printf("%ld == %s\n",ft_strlcat(x,"efghi",7),x);
 }

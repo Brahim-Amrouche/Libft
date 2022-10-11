@@ -6,18 +6,13 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 20:52:27 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/05 20:55:34 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:16:40 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void ft_bzero(void *s,unsigned int n)
-{
-    int i;
+#include "libft.h"
 
-    i = 0;
-    while (i++ < n)
-    {
-        s = '\0';
-        s++;
-    }
+void ft_bzero(void *s,size_t n)
+{
+    ft_memset(s,0,n);
 }

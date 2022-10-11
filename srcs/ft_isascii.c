@@ -6,13 +6,13 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:00:57 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/05 18:29:36 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/09 00:47:26 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isascii(char c)
+int ft_isascii(int c)
 {
-    if ( c >= '\000' && c <= '\177')
+    if ( c >= 0000 && c <= 0177)
         return 1;
     return 0;
 }

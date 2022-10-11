@@ -6,16 +6,17 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:26:21 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/06 11:35:03 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/09 16:59:26 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char *strchr(const char *s , int c)
+char *ft_strchr(const char *s , int c)
 {
-    while (*(s++))
-        if (*s == c)
-            return s;
-    if (*s == c)
-        return s;
-    return 0;   
+    char *temp = (char *) s;
+    while (*temp){
+        if (*temp == c)
+            return temp;
+        temp++;
+    }
+    return ((*temp == c) ? temp : 0) ;   
 }

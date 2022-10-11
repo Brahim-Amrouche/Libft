@@ -6,13 +6,13 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 16:07:28 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/05 18:29:27 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/09 01:22:58 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isprint(char c)
+int ft_isprint(int c)
 {
-    if ( c <= 0176 && c >= 040)
+    if ( c >= 040 && c <= 0176)
         return 1;
     return 0;
 }
