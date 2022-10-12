@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 01:33:47 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/11 15:55:51 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/11 21:41:02 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int ft_memcmp(const void *s1,const void *s2, size_t n)
 {
-    int i;
+    size_t i;
 
     i = 0;
     while (i < n)

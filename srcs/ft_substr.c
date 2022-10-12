@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 23:16:29 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/11 20:45:06 by bamrouch         ###   ########.fr       */
+/*   Created: 2022/10/11 20:49:30 by bamrouch          #+#    #+#             */
+/*   Updated: 2022/10/11 22:47:15 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void *ft_memcpy(void *restrict dst , const void *restrict src, size_t n)
+char *ft_substr(char const *s,unsigned int start,size_t len)
 {
+    size_t s_len;
     size_t i;
+    char *res;
+
+    res = (char *) ft_calloc(len + 1,sizeof(char));
+    if (!res)
+        return NULL;
+    s_len = ft_strlen(s);
     i = 0;
-    while (i < n )
+    while ( i < len && start + i < s_len)
     {
-        ((char *) dst)[i] = ((char *) src)[i];
+        res[i] = s[start + i];
         i++;
     }
-    return dst;
+    res[i] = 0;
+    return res;
 }

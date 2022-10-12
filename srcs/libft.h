@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:15:10 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/11 15:17:29 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/12 20:10:41 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #   include <unistd.h>
 #   include <string.h>
 #   include <stdlib.h>
+#   include <errno.h>
+#   include <err.h>
 
 /* row 1*/
 int ft_isalpha(int c);
@@ -42,8 +44,14 @@ int ft_memcmp(const void *s1,const void *s2, size_t n);
 char *ft_strstr(const char *haystack,const char *needle);
 int ft_atoi(const char *str);
 
-/* advanced functions */
+/* malloc funcs*/
+void *ft_calloc(size_t count, size_t size);
+char *ft_strdup(const char *s1);
 
+/* advanced functions */
+char *ft_substr(char const *s,unsigned int start,size_t len);
+char *ft_strjoin(char const *s1, char const*s2);
+char *ft_strtrim(char const *s1, char const *set);
 
 /* Bonus functions */
 
