@@ -6,11 +6,13 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 14:52:13 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/08 21:06:05 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/13 01:55:37 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_isalpha(int c){
-    if ((c >= 'A'  && c <= 'Z') || (c >= 'a' && c <= 'z'))return 1;
-    return 0;
+int	ft_isalpha(int c)
+{
+	if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
 }

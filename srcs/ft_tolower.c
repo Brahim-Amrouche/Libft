@@ -6,13 +6,13 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:15:59 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/09 16:43:19 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/13 02:42:48 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_tolower(int c)
+int	ft_tolower(int c)
 {
-    if (c >= 'A' && c <= 'Z')
-        return c + 32;
-    return c;
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

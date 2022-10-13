@@ -6,13 +6,13 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:06:48 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/06 11:15:26 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/13 02:43:53 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_toupper(int c)
+int	ft_toupper(int c)
 {
-    if (c >= 97 && c <= 122 )
-        return (c - 32);
-    return c;
+	if (c >= 97 && c <= 122)
+		return (c - 32);
+	return (c);
 }
