@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 20:21:27 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/13 02:08:28 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/13 02:58:13 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static char	**ft_calloc_splits(char const *s, char sep)
 		while (s[i] != 0 && !ft_is_seperator(s[i], sep))
 			i++;
 	}
-	printf("%zu=== \n", count);
 	return (ft_calloc(count + 1, sizeof(char *)));
 }
 
