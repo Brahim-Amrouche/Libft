@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 01:16:42 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/13 20:00:00 by bamrouch         ###   ########.fr       */
+/*   Created: 2022/10/13 19:33:20 by bamrouch          #+#    #+#             */
+/*   Updated: 2022/10/13 19:45:07 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_upper(unsigned int pos, char *c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	(void) pos;
-	if ( *c >= 'a' && *c <= 'z')
-		*c = *c - 32;
-}
+	size_t	str_len;
+	size_t	i;
+	char	*res;
 
-
-int	main(int argc, char **argv)
-{
-	(void)argc;
-	ft_striteri(argv[1],ft_upper);
-	printf("%s \n",argv[1]);
-	return (0);
+	str_len = ft_strlen(s);
+	res = (char *)ft_calloc(str_len + 1, sizeof(char));
+	if (!res)
+		return (NULL);
+	i = -1;
+	while (++i < str_len)
+		res[i] = f(i, s[i]);
+	return (res);
 }
