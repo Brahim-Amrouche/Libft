@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:15:10 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/12 20:10:41 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/12 21:58:01 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ char *ft_strdup(const char *s1);
 char *ft_substr(char const *s,unsigned int start,size_t len);
 char *ft_strjoin(char const *s1, char const*s2);
 char *ft_strtrim(char const *s1, char const *set);
+char **ft_split(char const *s,char c);
 
 /* Bonus functions */
 
