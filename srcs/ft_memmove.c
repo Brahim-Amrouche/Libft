@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 00:42:22 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/11 13:53:57 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/14 23:49:15 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	char	temp[len];
+	char	*dest;
+	char	*source;
 
-	i = 0;
-	while (i < len)
-	{
-		temp[i] = ((char *)src)[i];
-		i++;
-	}
-	i = 0;
-	while (i < len)
-	{
-		((char *)dst)[i] = temp[i];
-		i++;
-	}
+	if (dst == NULL)
+		return (NULL);
+	dest = (char *)dst;
+	source = (char *)src;
+	if (dest > source)
+		while (len-- > 0)
+			dest[len] = source[len];
+	else
+		ft_memcpy(dst, src, len);
 	return (dst);
 }

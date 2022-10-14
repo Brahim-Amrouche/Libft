@@ -6,18 +6,11 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 20:21:27 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/13 23:44:48 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/14 22:10:53 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_is_seperator(char car, char sep)
-{
-	if (car == sep)
-		return (1);
-	return (0);
-}
 
 static char	**ft_calloc_splits(char const *s, char sep)
 {
@@ -28,63 +21,61 @@ static char	**ft_calloc_splits(char const *s, char sep)
 	i = 0;
 	while (s[i] != 0)
 	{
-		while (s[i] != 0 && ft_is_seperator(s[i], sep))
+		while (s[i] && s[i] == sep)
 			i++;
-		if (s[i] != 0)
+		if (s[i])
 			count++;
-		while (s[i] != 0 && !ft_is_seperator(s[i], sep))
+		while (s[i] && s[i] != sep)
 			i++;
 	}
 	return (ft_calloc(count + 1, sizeof(char *)));
 }
 
-void	ft_free_splits(char **splits, size_t pos)
+static void	ft_free_splits(char **splits)
 {
 	size_t	i;
 
-	i = pos;
-	while (i-- > 0)
+	i = -1;
+	while (splits[++i])
 		free(splits[i]);
 	free(splits);
 }
 
-static char	**ft_make_splits(char **splits, char const *s, char c)
+static size_t	ft_make_splits(char **splits, char const *s, char sep)
 {
-	size_t	i;
-	size_t	split_len;
-	size_t	pos;
-	size_t	temp;
+	size_t	split_size;
+	size_t	split_pos;
 
-	i = 0;
-	pos = 0;
-	while (s[i])
-	{
-		split_len = 0;
-		while (s[i] && ft_is_seperator(s[i], c))
-			i++;
-		temp = i;
-		while (s[i] && !ft_is_seperator(s[i], c))
-		{
-			i++;
-			split_len++;
-		}
-		if (s[temp])
-		{
-			splits[pos++] = ft_substr(s, temp, split_len);
-			if (!splits[pos - 1])
-				ft_free_splits(splits, pos - 1);
-		}
-	}
-	return (splits);
+	split_size = 0;
+	split_pos = -1;
+	while (s[split_size] && s[split_size] != sep)
+		split_size++;
+	while (splits[++split_pos])
+		;
+	splits[split_pos] = ft_substr(s, 0, split_size);
+	return (split_size);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
+	size_t	i;
 
 	res = ft_calloc_splits(s, c);
 	if (!res)
 		return (NULL);
-	res = ft_make_splits(res, s, c);
+	i = 0;
+	while (s[i])
+	{
+		while (s[i] && s[i] == c)
+			i++;
+		if (s[i])
+			i += ft_make_splits(res, (s + i), c);
+		if (errno == ENOMEM)
+		{
+			ft_free_splits(res);
+			return (NULL);
+		}
+	}
 	return (res);
 }
