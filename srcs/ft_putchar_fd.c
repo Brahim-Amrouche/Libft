@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/09 01:16:42 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/14 16:45:52 by bamrouch         ###   ########.fr       */
+/*   Created: 2022/10/13 21:42:45 by bamrouch          #+#    #+#             */
+/*   Updated: 2022/10/14 03:43:19 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main(int argc, char **argv)
+void	ft_putchar_fd(char c, int fd)
 {
-	(void)argc;
-	(void)argv;
-	printf("%d \n",ft_atoi("389124"));
-	return (0);
+	write(fd, &c, 1);
 }

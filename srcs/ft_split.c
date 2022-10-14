@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 20:21:27 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/13 02:58:13 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/13 23:44:48 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ static char	**ft_calloc_splits(char const *s, char sep)
 	return (ft_calloc(count + 1, sizeof(char *)));
 }
 
+void	ft_free_splits(char **splits, size_t pos)
+{
+	size_t	i;
+
+	i = pos;
+	while (i-- > 0)
+		free(splits[i]);
+	free(splits);
+}
+
 static char	**ft_make_splits(char **splits, char const *s, char c)
 {
 	size_t	i;
@@ -59,7 +69,11 @@ static char	**ft_make_splits(char **splits, char const *s, char c)
 			split_len++;
 		}
 		if (s[temp])
+		{
 			splits[pos++] = ft_substr(s, temp, split_len);
+			if (!splits[pos - 1])
+				ft_free_splits(splits, pos - 1);
+		}
 	}
 	return (splits);
 }

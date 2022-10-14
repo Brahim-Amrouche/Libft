@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:15:10 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/13 19:59:28 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/14 04:32:16 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 # define LIBFT_H
 # include <err.h>
 # include <errno.h>
+# include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <sys/stat.h>
+# include <sys/types.h>
 # include <unistd.h>
+# include <limits.h>
 
 int		ft_isalpha(int c);
 /* row 1*/
@@ -59,6 +63,10 @@ char	**ft_split(char const *s, char c);
 char	*ft_itoa(int c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 /* Bonus functions */
 
