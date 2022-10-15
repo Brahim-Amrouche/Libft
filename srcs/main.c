@@ -6,17 +6,50 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 01:16:42 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/14 23:48:15 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/15 21:10:16 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+void *special_hello(void *x)
+{
+	char *s = ft_strdup("Hello");
+	s[0]= *((char *)x);
+	return s;
+}
+
+void	del_func(void *x)
+{
+	free(x);
+}
+
 int	main(int argc, char **argv)
 {
 	(void)argc;
 	(void)argv;
-	printf("libray memcpy === %s \n",(char *)memcpy(argv[1]+2 ,argv[1],ft_atoi(argv[2])));
-	printf("ft_memcpy === %s \n",(char *)ft_memcpy(argv[2]+2 ,argv[2],ft_atoi(argv[2])));
+	t_list *x,*y,*z;
+	t_list *current,*res;	
+	char *s1 = ft_strdup("wabalab");
+	char *s2 = ft_strdup("dubidu");
+	char *s3 = ft_strdup("bolido");
+
+	x =ft_lstnew(s1);
+	y =ft_lstnew(s2);
+	z = ft_lstnew(s3);
+	ft_lstadd_front(&y,x);
+	ft_lstadd_back(&x,z);
+	current = x ;
+	res = ft_lstmap(NULL,special_hello,del_func);
+	while(current->next)
+	{
+		printf("%s is from x \n",current->content);
+		printf("%s is from map \n",res->content);
+		current = current->next;
+		res = res->next;
+	}
+	printf("%s is from x \n",current->content);
+	printf("%s is from map \n",res->content);
+	ft_lstclear(&res,del_func);
 	return (0);
 }
