@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 20:21:27 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/16 20:40:39 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:16:17 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,15 @@ static size_t	ft_make_splits(char **splits, char const *s, char sep)
 	while (splits[++split_pos])
 		;
 	splits[split_pos] = ft_substr(s, 0, split_size);
+	if (!splits[split_pos])
+		return (0);
 	return (split_size);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
+	size_t	temp;
 	size_t	i;
 
 	res = ft_calloc_splits(s, c);
@@ -70,11 +73,14 @@ char	**ft_split(char const *s, char c)
 		while (s[i] && s[i] == c)
 			i++;
 		if (s[i])
-			i += ft_make_splits(res, (s + i), c);
-		if (errno == ENOMEM)
 		{
-			ft_free_splits(res);
-			return (NULL);
+			temp = ft_make_splits(res, (s + i), c);
+			if (!temp)
+			{
+				ft_free_splits(res);
+				return (NULL);
+			}
+			i += temp;
 		}
 	}
 	return (res);

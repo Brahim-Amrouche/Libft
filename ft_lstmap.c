@@ -6,23 +6,19 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:36:02 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/15 23:06:45 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:51:59 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	*ft_make_content(t_list **lst, void *content, void *(*f)(void *),
-		void (*del)(void *))
+static void	*ft_make_content(void *content, void *(*f)(void *))
 {
 	void	*temp;
 
 	temp = f(content);
-	if (!temp)
-	{
-		ft_lstclear(lst, del);
+	if (temp == NULL)
 		return (NULL);
-	}
 	return (temp);
 }
 
@@ -65,6 +61,12 @@ static t_list	*ft_lst_copy(t_list *lst)
 	return (list_head);
 }
 
+static void	*ft_free_list(t_list **lst, void (*del)(void *))
+{
+	ft_lstclear(lst, del);
+	return (NULL);
+}
+
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*map_current;
@@ -74,19 +76,20 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	if (!lst)
 		return (NULL);
 	map_current = ft_lst_copy(lst);
-	lst_current = lst;
 	if (!map_current)
 		return (NULL);
+	lst_current = lst;
 	res = map_current;
-	while (lst_current->next)
+	while (lst_current->next && map_current->next)
 	{
-		map_current->content = ft_make_content(&res, lst_current->content, f,
-				del);
+		map_current->content = ft_make_content(lst_current->content, f);
 		if (!map_current->content)
-			return (NULL);
+			return (ft_free_list(&res, del));
 		lst_current = lst_current->next;
 		map_current = map_current->next;
 	}
-	map_current->content = ft_make_content(&res, lst_current->content, f, del);
+	map_current->content = ft_make_content(lst_current->content, f);
+	if (!map_current->content)
+		return (ft_free_list(&res, del));
 	return (res);
 }

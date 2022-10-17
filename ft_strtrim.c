@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 01:46:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/13 02:41:41 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:20:14 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@ static size_t	ft_trim_end(char const *s1, char const *set, size_t front_skip)
 	size_t	end_skip;
 	size_t	i;
 
-	end_skip = ft_strlen(s1) - 1;
+	end_skip = ft_strlen(s1);
 	while (end_skip > front_skip)
 	{
 		i = 0;
-		while (set[i] && set[i] != s1[end_skip])
+		while (set[i] && set[i] != s1[end_skip - 1])
 			i++;
 		if (!set[i])
 			break ;
 		end_skip--;
 	}
-	return (end_skip);
+	return (end_skip - 1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)

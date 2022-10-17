@@ -6,21 +6,15 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:15:10 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/16 15:37:36 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 11:28:21 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <err.h>
-# include <errno.h>
-# include <fcntl.h>
-# include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
-# include <sys/stat.h>
-# include <sys/types.h>
 # include <unistd.h>
 
 typedef struct s_list

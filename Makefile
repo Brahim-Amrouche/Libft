@@ -6,7 +6,7 @@ HEADERS	=	-Ilibft.h
 
 FLAGS = -Wall -Wextra -Werror $(HEADERS)
 
-CC = gcc
+CC = cc
 
 OBJS = $(patsubst %.c,%.o,$(SRCS))
 
@@ -26,7 +26,7 @@ $(NAME): $(OBJS)
 	ar -rcs $@ ${OBJS}
 
 clean :
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(BONUS_OBJS)
 
 fclean : clean
 	$(RM) $(NAME)
