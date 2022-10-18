@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 20:49:30 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/16 16:59:30 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 20:35:32 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	char	*res;
 
+	if (!s)
+		return (NULL);
 	s_len = ft_strlen(s);
 	if (start >= s_len)
 		len = 0;

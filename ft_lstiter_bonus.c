@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 17:28:33 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/15 23:45:03 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/18 00:14:34 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*current;
 
-	if (!lst)
+	if (!lst || !f)
 		return ;
 	current = lst;
 	while (current->next)

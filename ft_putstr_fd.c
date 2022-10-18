@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 00:38:10 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/14 03:44:47 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 23:09:56 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	size_t	str_len;
 	size_t	i;
 
+	if (!s)
+		return ;
 	i = -1;
 	str_len = ft_strlen(s);
 	while (++i < str_len)

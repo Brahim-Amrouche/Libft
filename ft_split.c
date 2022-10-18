@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 20:21:27 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/17 11:16:17 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:31:44 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static char	**ft_calloc_splits(char const *s, char sep)
 	size_t	count;
 	size_t	i;
 
+	if (!s)
+		return (NULL);
 	count = 0;
 	i = 0;
 	while (s[i] != 0)

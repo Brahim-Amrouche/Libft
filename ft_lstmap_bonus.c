@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 18:36:02 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/17 12:51:59 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/18 00:16:09 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*lst_current;
 	t_list	*res;
 
-	if (!lst)
+	if (!lst || !f || !del)
 		return (NULL);
 	map_current = ft_lst_copy(lst);
 	if (!map_current)

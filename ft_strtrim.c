@@ -6,7 +6,7 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 01:46:34 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/17 11:20:14 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 21:15:31 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	front_trim;
 	size_t	end_trim;
 
+	if (!s1)
+		return (NULL);
+	if (!set)
+		return (ft_strdup(s1));
 	front_trim = ft_trim_front(s1, set);
 	end_trim = ft_trim_end(s1, set, front_trim);
 	return (ft_substr(s1, front_trim, end_trim - front_trim + 1));

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoi.c                                          :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 03:10:30 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/16 00:18:42 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/17 22:42:03 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ char	*ft_itoa(int c)
 
 	char_size = ft_char_size(c);
 	res = ft_calloc(char_size, sizeof(char));
-	positive = 1;
 	if (!res)
 		return (NULL);
+	positive = 1;
 	if (c == -2147483648)
 	{
 		ft_strlcpy(res, "-2147483648", 12);
