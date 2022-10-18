@@ -6,18 +6,18 @@
 /*   By: bamrouch <bamrouch@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 17:46:59 by bamrouch          #+#    #+#             */
-/*   Updated: 2022/10/16 16:34:29 by bamrouch         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:09:08 by bamrouch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_no_ternary(size_t j)
-{
-	if (j)
-		return (j);
-	return (1);
-}
+// static size_t	ft_no_ternary(size_t j)
+// {
+// 	if (j)
+// 		return (j);
+// 	return (1);
+// }
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
@@ -41,7 +41,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 			return (res);
 		else
 		{
-			i += ft_no_ternary(j);
+			i++;
 			j = 0;
 		}
 	}
